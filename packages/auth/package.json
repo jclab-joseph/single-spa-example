@@ -1,0 +1,55 @@
+{
+  "name": "@single-spa-example/auth-front",
+  "private": true,
+  "version": "0.0.1",
+  "scripts": {
+    "serve": "yarn standalone:serve",
+    "webpack:serve": "node build/serve.js",
+    "standalone:serve": "vue-cli-service serve --mode standalone --port 9999",
+    "build": "webpack --mode=production",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.4"
+  },
+  "devDependencies": {
+    "@types/systemjs": "^6.1.1",
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-plugin-router": "~4.5.0",
+    "@vue/cli-plugin-typescript": "~4.5.0",
+    "@vue/cli-plugin-vuex": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "copy-webpack-plugin": "^6.4.1",
+    "core-js": "^3.6.5",
+    "expose-loader": "^3.0.0",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^2.2.2",
+    "ncp": "^2.0.0",
+    "sass": "^1.39.0",
+    "sass-loader": "10.1.1",
+    "single-spa": "^5.9.3",
+    "single-spa-vue": "^2.5.1",
+    "systemjs": "^6.10.3",
+    "systemjs-webpack-interop": "^2.3.7",
+    "ts-loader": "^8.3.0",
+    "vue": "^2.6.11",
+    "vue-class-component": "^7.2.3",
+    "vue-loader": "^15.9.8",
+    "vue-property-decorator": "^9.1.2",
+    "vue-router": "^3.2.0",
+    "vue-template-compiler": "^2.6.11",
+    "vuex": "^3.4.0",
+    "webpack": "^4.40.2",
+    "webpack-cli": "^4.8.0",
+    "webpack-dev-middleware": "^5.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jclab-joseph/single-spa-example.git"
+  },
+  "homepage": "https://github.com/jclab-joseph/single-spa-example",
+  "author": "Joseph Lee <joseph@jc-lab.net>",
+  "license": "Apache-2.0"
+}

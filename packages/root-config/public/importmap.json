@@ -1,0 +1,13 @@
+{
+  "imports": {
+    "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.5.1/lib/system/single-spa.min.js",
+    "vue": "https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.min.js",
+    "vue-router": "https://cdn.jsdelivr.net/npm/vue-router@3.1.6/dist/vue-router.min.js",
+    "@single-spa/welcome": "https://unpkg.com/single-spa-welcome/dist/single-spa-welcome.js",
+    "@single-spa-example/root-config": "/single-spa-example-root-config.js",
+    "@single-spa-example/navbar": "/navbar/app.js",
+    "@single-spa-example/navbar/": "/navbar/",
+    "@single-spa-example/auth-front": "http://localhost:9999/app.js",
+    "@single-spa-example/auth-front/": "http://localhost:9999/"
+  }
+}

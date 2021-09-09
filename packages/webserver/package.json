@@ -1,0 +1,18 @@
+{
+  "name": "@single-spa-example/webserver",
+  "private": true,
+  "version": "0.0.1",
+  "scripts": {},
+  "devDependencies": {
+    "express": "^4.17.1"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jclab-joseph/single-spa-example.git"
+  },
+  "homepage": "https://github.com/jclab-joseph/single-spa-example",
+  "author": "Joseph Lee <joseph@jc-lab.net>",
+  "license": "Apache-2.0"
+}
+
