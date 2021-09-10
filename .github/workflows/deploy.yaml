@@ -1,0 +1,38 @@
+name: Deploy Project
+on: [push]
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Set up Node.js
+        uses: actions/setup-node@master
+        with:
+          node-version: 12.x
+      - name: Cache node_modules
+        uses: actions/cache@v1
+        with:
+          path: node_modules
+          key: ${{runner.OS}}-build-${{hashFiles('**/yarn.lock')}}
+          restore-keys: |
+            ${{ runner.OS }}-build-${{ runner.OS }}-
+      - name: Install dependencies
+        run: |
+          yarn install
+          yarn build
+          mkdir -p dist/views/
+          (cd packages/webserver/ && cp -rf app.js package*.json $PWD/dist/)
+          (cd dist && yarn install --prod)
+          cp -rf packages/root-config/dist/* dist/views/
+          cp -rf packages/navbar/dist dist/views/navbar
+          cp -rf packages/auth/dist dist/views/auth
+      - name: Build
+        run: yarn run build
+        env:
+          NODE_ENV: production
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v2.5.0
+        env:
+          PERSONAL_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          PUBLISH_BRANCH: gh-pages
+          PUBLISH_DIR: ./dist
