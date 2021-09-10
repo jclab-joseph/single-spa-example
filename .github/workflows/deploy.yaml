@@ -21,7 +21,7 @@ jobs:
           yarn install
           yarn build
           mkdir -p dist/views/
-          (cd packages/webserver/ && cp -rf app.js package*.json $PWD/dist/)
+          (cd packages/webserver/ && cp -rf app.js package*.json ${{ env.GITHUB_WORKSPACE }}/dist/)
           (cd dist && yarn install --prod)
           cp -rf packages/root-config/dist/* dist/views/
           cp -rf packages/navbar/dist dist/views/navbar
