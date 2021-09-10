@@ -19,6 +19,10 @@ app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, './views', 'index.html'));
 });
 
+const server = app.listen(PORT, () => {
+  console.log(`Start server: listen port=${PORT}`);
+});
+
 // Do any necessary shutdown logic for our application here
 const shutdown = (signal, value) => {
   console.log("shutdown!");
@@ -34,8 +38,4 @@ Object.keys(signals).forEach((signal) => {
     console.log(`process received a ${signal} signal`);
     shutdown(signal, signals[signal]);
   });
-});
-
-const server = app.listen(80, () => {
-  console.log(`Start server: listen port=${PORT}`);
 });

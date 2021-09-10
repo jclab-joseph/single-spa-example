@@ -17,13 +17,17 @@ module.exports = (webpackConfigEnv, argv) => {
   });
 
   delete defaultConfig.output.uniqueName;
-  console.log(defaultConfig.module.rules[3]);
+
+  const importMapMapping = (process.env.NODE_ENV === 'development') ?
+    { from: 'importmap/dev.json', to: 'importmap.json' } :
+    { from: 'importmap/prud.json', to: 'importmap.json' };
 
   return merge(defaultConfig, {
     devServer: {
       static: [
         {
-          directory: path.join(__dirname, 'public')
+          directory: path.join(__dirname, importMapMapping.from),
+          publicPath: `/${importMapMapping.to}`
         },
         {
           directory: path.join(__dirname, '../navbar/dist/'),
@@ -35,7 +39,7 @@ module.exports = (webpackConfigEnv, argv) => {
     plugins: [
       new CopyWebpackPlugin({
         patterns: [
-          { from: 'public' }
+          importMapMapping
         ]
       }),
       new HtmlWebpackPlugin({
