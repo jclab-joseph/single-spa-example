@@ -27,10 +27,6 @@ jobs:
           cp -rf packages/root-config/dist/* dist/views/
           cp -rf packages/navbar/dist dist/views/navbar
           cp -rf packages/auth/dist dist/views/auth
-      - name: Build
-        run: yarn run build
-        env:
-          NODE_ENV: production
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v2.5.0
         env:
